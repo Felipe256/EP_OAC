@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "visao_alto_nivel_ep_1_ex_11.h"
 
+long valor(int i, long* F, long* G){
+    (*F) = valorF(i);
+    (*G) = valorG(i);
+}
+
 long valorG(long i) {
     if(i < 1)
         return 0;
@@ -26,10 +31,11 @@ long valorF(long i) {
 }
 
 int main() {
-    long i = 3;
-    long F = valorF(i);
-    long G = valorG(i);
-    printf("Item B: F(%d): %d; G(%d): %d\n", i, F, i, G);
+    long i = 5;
+    long F;
+    long G;
+    valor(i, &F, &G);
+    printf("Item B: F(%d): %d; G(%d): %d;\n", i, F, i, G);
 
     // o numero resultante de F(n+200) e G(n+200) é maior que o limite suportado pela linguagem C
     // o limite da linguagem se encontra entre F(33) e F(43)
